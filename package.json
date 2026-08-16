@@ -1,8 +1,16 @@
 {
   "name": "rtl-resolver",
   "version": "0.1.0",
-  "description": "Small, dependency-free RTL and text-direction utilities for JavaScript and TypeScript.",
-  "keywords": ["rtl", "ltr", "i18n", "bidi", "localization", "direction"],
+  "description": "Fast, dependency-free RTL and Unicode bidirectional-text utilities for JavaScript and TypeScript.",
+  "keywords": ["rtl", "ltr", "i18n", "bidi", "unicode-bidi", "localization", "direction"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/therufet721/rtl-resolver.git"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -13,18 +21,35 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./bidi": {
+      "types": "./dist/bidi/index.d.ts",
+      "import": "./dist/bidi/index.js",
+      "require": "./dist/bidi/index.cjs"
     }
   },
   "files": ["dist", "README.md", "LICENSE"],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+    "unicode:fetch": "node scripts/fetch-unicode-data.mjs",
+    "unicode:generate": "node scripts/generate-unicode-data.mjs && node scripts/generate-bracket-data.mjs",
+    "unicode:smoke": "node scripts/select-smoke-cases.mjs",
+    "test:bidi:characters": "node scripts/run-bidi-conformance.mjs",
+    "test:bidi:classes": "node scripts/run-bidi-test.mjs",
+    "test:bidi:conformance": "npm run unicode:fetch && npm run build && npm run test:bidi:characters && npm run test:bidi:classes",
+    "benchmark": "vitest bench --run",
+    "verify:release": "npm run typecheck && npm test && npm run test:bidi:conformance",
+    "prepublishOnly": "npm run verify:release"
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
