@@ -1,0 +1,41 @@
+{
+  "name": "@rtl-resolver/cli",
+  "version": "0.2.0",
+  "description": "Audit and migration CLI for RTL-ready projects.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "rtl-resolver": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@rtl-resolver/core": "0.2.0",
+    "@rtl-resolver/css": "0.2.0",
+    "@rtl-resolver/fonts": "0.2.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rufat Arzumanov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/rtl-resolver.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

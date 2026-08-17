@@ -1,0 +1,6 @@
+dist
+packages/*/dist
+node_modules
+.cache
+examples/storybook/storybook-static
+packages/core/src/bidi/data/*.generated.ts

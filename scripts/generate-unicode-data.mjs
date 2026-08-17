@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { manifest, readVerified, resolveOutput } from "./unicode-source.mjs";
 
-const output = resolveOutput("src/bidi/data/bidi.generated.ts", process.argv[3]);
+const output = resolveOutput("packages/core/src/bidi/data/bidi.generated.ts", process.argv[3]);
 const { text: source } = readVerified("DerivedBidiClass.txt", process.argv[2]);
 const version = manifest.unicodeVersion;
 

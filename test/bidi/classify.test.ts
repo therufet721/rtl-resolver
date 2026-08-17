@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bidiClassName, bidiClassOf } from "../../src/bidi/classify.js";
+import { bidiClassName, bidiClassOf } from "../../packages/core/src/bidi/classify.js";
 
 describe("Unicode Bidi_Class lookup", () => {
   it("classifies representative LTR, RTL, Arabic, and control characters", () => {

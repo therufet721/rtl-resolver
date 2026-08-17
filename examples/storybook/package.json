@@ -1,0 +1,27 @@
+{
+  "name": "@rtl-resolver/example-storybook",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build -o storybook-static"
+  },
+  "dependencies": {
+    "@rtl-resolver/core": "file:../../packages/core",
+    "@rtl-resolver/react": "file:../../packages/react",
+    "@rtl-resolver/testing": "file:../../packages/testing",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "storybook": "^8.6.14",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.11"
+  }
+}

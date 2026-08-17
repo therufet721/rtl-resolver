@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { InputFlags } from "../../src/bidi/types.js";
-import { chooseFastPath } from "../../src/bidi/scan.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { InputFlags } from "../../packages/core/src/bidi/types.js";
+import { chooseFastPath } from "../../packages/core/src/bidi/scan.js";
 
 describe("decodeCodePoints", () => {
   it("decodes astral characters and preserves UTF-16 spans", () => {

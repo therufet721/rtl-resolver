@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { analyzeBidi } from "../../src/bidi/resolve.js";
+import { analyzeBidi } from "../../packages/core/src/bidi/resolve.js";
 
 interface SmokeFixture {
   source: { file: string; unicodeVersion: string; sha256: string; selection: string };

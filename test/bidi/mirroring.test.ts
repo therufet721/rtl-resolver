@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mirroredCodePoint } from "../../src/bidi/mirroring.js";
+import { mirroredCodePoint } from "../../packages/core/src/bidi/mirroring.js";
 
 describe("Unicode mirroring lookup", () => {
   it("returns mirrored bracket code points", () => {

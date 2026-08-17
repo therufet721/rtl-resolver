@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { analyzeBidi, analyzeBidiFull, resolveBidiLevels, resolveBidiLevelsFull } from "../../src/bidi/resolve.js";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { chooseFastPath } from "../../src/bidi/scan.js";
+import { analyzeBidi, analyzeBidiFull, resolveBidiLevels, resolveBidiLevelsFull } from "../../packages/core/src/bidi/resolve.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { chooseFastPath } from "../../packages/core/src/bidi/scan.js";
 
 /** Deterministic PRNG so a failure reproduces from the printed seed. */
 function mulberry32(seed: number): () => number {

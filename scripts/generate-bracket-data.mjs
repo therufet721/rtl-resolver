@@ -3,7 +3,7 @@ import { manifest, readVerified, resolveOutput } from "./unicode-source.mjs";
 
 const { text: bracketSource } = readVerified("BidiBrackets.txt", process.argv[2]);
 const { text: mirrorSource } = readVerified("BidiMirroring.txt", process.argv[3]);
-const output = resolveOutput("src/bidi/data/bidi-pairs.generated.ts", process.argv[4]);
+const output = resolveOutput("packages/core/src/bidi/data/bidi-pairs.generated.ts", process.argv[4]);
 const brackets = [];
 for (const line of bracketSource.split(/\r?\n/)) {
   const match = line.match(/^([0-9A-F]+);\s*([0-9A-F]+);\s*([oc])/);

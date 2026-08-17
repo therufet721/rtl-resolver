@@ -1,0 +1,48 @@
+{
+  "name": "@rtl-resolver/next",
+  "version": "0.2.0",
+  "description": "Async App Router direction helpers for Next.js root layouts.",
+  "license": "MIT",
+  "author": "Rufat Arzumanov",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "@rtl-resolver/core": "0.2.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/rtl-resolver.git",
+    "directory": "packages/next"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

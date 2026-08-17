@@ -1,0 +1,67 @@
+{
+  "name": "@rtl-resolver/radix",
+  "version": "0.2.0",
+  "description": "Radix direction and dialog wrappers that honor rtl-resolver direction.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@radix-ui/react-dialog": ">=1",
+    "@radix-ui/react-direction": ">=1",
+    "@radix-ui/react-dropdown-menu": ">=1",
+    "@radix-ui/react-popover": ">=1",
+    "@radix-ui/react-select": ">=1",
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@rtl-resolver/adapters": "0.2.0",
+    "@rtl-resolver/core": "0.2.0",
+    "@rtl-resolver/react": "0.2.0"
+  },
+  "devDependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-direction": "^1.1.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.24",
+    "@radix-ui/react-popover": "^1.1.23",
+    "@radix-ui/react-select": "^2.3.7",
+    "@types/react": "^19.0.0",
+    "react": "^19.2.3"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rufat Arzumanov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/rtl-resolver.git",
+    "directory": "packages/radix"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

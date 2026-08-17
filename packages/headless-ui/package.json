@@ -1,0 +1,59 @@
+{
+  "name": "@rtl-resolver/headless-ui",
+  "version": "0.2.0",
+  "description": "Headless UI dialog wrapper that honors rtl-resolver direction.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "@headlessui/react": ">=2",
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@rtl-resolver/adapters": "0.2.0",
+    "@rtl-resolver/core": "0.2.0",
+    "@rtl-resolver/react": "0.2.0"
+  },
+  "devDependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@types/react": "^19.0.0",
+    "react": "^19.2.3"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rufat Arzumanov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/rtl-resolver.git",
+    "directory": "packages/headless-ui"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

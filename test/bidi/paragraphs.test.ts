@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { resolveParagraphs } from "../../src/bidi/paragraphs.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { resolveParagraphs } from "../../packages/core/src/bidi/paragraphs.js";
 
 describe("P1-P3 paragraph resolution", () => {
   it("splits on paragraph separators and resolves first strong direction", () => {

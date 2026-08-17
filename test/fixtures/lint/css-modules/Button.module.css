@@ -1,0 +1,25 @@
+:export {
+  left: startToken;
+  right: endToken;
+}
+
+:import("./tokens.module.css") {
+  left: importedLeft;
+}
+
+@value left: start-token;
+
+:global(.icon) {
+  display: inline-block;
+}
+
+.left {
+  color: red;
+}
+
+.box {
+  composes: left from global;
+  margin-left: 1rem;
+  left: 0;
+  padding: 1px 2px 3px 4px;
+}

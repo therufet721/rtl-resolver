@@ -1,11 +1,22 @@
 {
   "name": "rtl-resolver",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Fast, dependency-free RTL and Unicode bidirectional-text utilities for JavaScript and TypeScript.",
-  "keywords": ["rtl", "ltr", "i18n", "bidi", "unicode-bidi", "localization", "direction"],
+  "keywords": [
+    "rtl",
+    "ltr",
+    "i18n",
+    "bidi",
+    "unicode-bidi",
+    "localization",
+    "direction"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/therufet721/rtl-resolver.git"
+    "url": "git+https://github.com/therufet721/rtl-resolver.git"
   },
   "homepage": "https://github.com/therufet721/rtl-resolver#readme",
   "bugs": {
@@ -17,6 +28,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
@@ -26,33 +38,75 @@
       "types": "./dist/bidi/index.d.ts",
       "import": "./dist/bidi/index.js",
       "require": "./dist/bidi/index.cjs"
+    },
+    "./plugin": {
+      "types": "./dist/plugin/index.d.ts",
+      "import": "./dist/plugin/index.js",
+      "require": "./dist/plugin/index.cjs"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "benchmark": "vitest bench --run",
     "build": "tsup",
+    "build:core": "npm run build --workspace=@rtl-resolver/core",
+    "build:workspaces": "npm run build --workspaces --if-present",
+    "audit": "node packages/cli/dist/cli.js audit .",
+    "lint:rtl": "node packages/cli/dist/cli.js lint test/fixtures/lint/clean",
+    "test:browsers": "playwright test",
+    "test:browsers:all": "RTL_BROWSER_ENGINES=all playwright test",
+    "test:at:voiceover": "playwright test -c playwright.voiceover.config.ts",
+    "test:at:nvda": "playwright test -c playwright.nvda.config.ts",
+    "storybook:build": "npm run build --prefix examples/storybook",
+    "migrate:dry": "node packages/cli/dist/cli.js migrate . --report",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "typecheck:workspaces": "npm run typecheck --workspaces --if-present",
     "unicode:fetch": "node scripts/fetch-unicode-data.mjs",
     "unicode:generate": "node scripts/generate-unicode-data.mjs && node scripts/generate-bracket-data.mjs",
     "unicode:smoke": "node scripts/select-smoke-cases.mjs",
     "test:bidi:characters": "node scripts/run-bidi-conformance.mjs",
     "test:bidi:classes": "node scripts/run-bidi-test.mjs",
     "test:bidi:conformance": "npm run unicode:fetch && npm run build && npm run test:bidi:characters && npm run test:bidi:classes",
-    "benchmark": "vitest bench --run",
-    "verify:release": "npm run typecheck && npm test && npm run test:bidi:conformance",
-    "prepublishOnly": "npm run verify:release"
+    "check:size": "node scripts/check-package-size.mjs",
+    "check:exports": "node scripts/check-package-exports.mjs",
+    "version:workspaces": "node scripts/version-workspaces.mjs",
+    "release:dry": "node scripts/publish-workspaces.mjs",
+    "release:publish": "node scripts/publish-workspaces.mjs --publish",
+    "verify:release": "npm run typecheck && npm run typecheck:workspaces && npm test && npm run build && npm run build:workspaces && npm run check:size && npm run check:exports && npm run lint:rtl && npm audit --omit=dev && npm run test:bidi:conformance",
+    "verify:full": "npm run verify:release && npm run test:browsers && npm run storybook:build",
+    "prepublishOnly": "node scripts/prepublish-guard.mjs"
   },
   "devDependencies": {
+    "@guidepup/guidepup": "^0.24.0",
+    "@guidepup/playwright": "^0.14.2",
+    "@playwright/test": "^1.62.1",
     "@types/node": "^22.10.2",
+    "bidi-js": "^1.0.3",
+    "eslint": "^9.39.5",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.5.26",
+    "prettier": "^3.9.6",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "typescript-eslint": "^8.67.0",
+    "vitest": "^4.1.10"
   },
-  "engines": {"node": ">=18"}
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rufat Arzumanov"
 }

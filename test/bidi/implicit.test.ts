@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { resolveParagraphs } from "../../src/bidi/paragraphs.js";
-import { resolveExplicit } from "../../src/bidi/explicit.js";
-import { buildIsolatingRunSequences } from "../../src/bidi/isolating-runs.js";
-import { resolveWeakTypes } from "../../src/bidi/weak.js";
-import { resolveBrackets } from "../../src/bidi/brackets.js";
-import { resolveNeutrals } from "../../src/bidi/neutral.js";
-import { resolveImplicitLevels } from "../../src/bidi/implicit.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { resolveParagraphs } from "../../packages/core/src/bidi/paragraphs.js";
+import { resolveExplicit } from "../../packages/core/src/bidi/explicit.js";
+import { buildIsolatingRunSequences } from "../../packages/core/src/bidi/isolating-runs.js";
+import { resolveWeakTypes } from "../../packages/core/src/bidi/weak.js";
+import { resolveBrackets } from "../../packages/core/src/bidi/brackets.js";
+import { resolveNeutrals } from "../../packages/core/src/bidi/neutral.js";
+import { resolveImplicitLevels } from "../../packages/core/src/bidi/implicit.js";
 
 function levels(text: string) {
   const state = resolveExplicit(resolveParagraphs(decodeCodePoints(text))[0]);

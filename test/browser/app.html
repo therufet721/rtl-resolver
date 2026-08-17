@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>rtl-resolver fixture</title>
+    <style>
+      * { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; animation: none !important; }
+      body { margin: 0; }
+      #app { position: relative; min-height: 360px; padding: 16px; }
+      #scroller { width: 80px; height: 40px; overflow: auto; border: 1px solid #333; }
+      #scroller > div { width: 400px; height: 1px; }
+      #swipe-pad { width: 160px; height: 48px; background: #ddd; margin-block: 12px; }
+      #start-edge { position: absolute; inset-block-start: 8px; inset-inline-start: 0; width: 16px; height: 16px; background: #c00; }
+      #popover { position: absolute; inset-block-start: 40px; inset-inline-start: 0; width: 80px; height: 24px; background: #222; color: #fff; }
+      table { border-collapse: collapse; margin-block: 12px; }
+      th, td { border: 1px solid #333; padding: 4px 8px; }
+      [data-sticky] { position: sticky; inset-inline-start: 0; background: #fff; }
+      dialog { border: 1px solid #333; }
+    </style>
+  </head>
+  <body>
+    <div id="app" dir="ltr">
+      <header role="banner"><span>rtl-resolver</span></header>
+      <nav role="navigation">
+        <button data-focus="one" id="focus-one">One</button>
+        <button data-focus="two" id="focus-two">Two</button>
+        <button data-focus="three" id="focus-three">Three</button>
+      </nav>
+      <main role="main">
+        <div id="start-edge"></div>
+        <div id="popover">menu</div>
+        <div id="scroller" dir="ltr"><div></div></div>
+        <div id="swipe-pad"></div>
+        <div id="swipe-status">none</div>
+        <form>
+          <label>Name <input id="name-input" data-focus="name" /></label>
+          <label>Arabic <input id="arabic-input" value="مرحبا" /></label>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th data-sticky id="col-name">Name</th>
+              <th id="col-city">City</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ada</td><td>London</td></tr>
+          </tbody>
+        </table>
+        <p>
+          <bdi lang="en">John Smith</bdi>
+          <bdi lang="ar">محمد علي</bdi>
+        </p>
+        <svg id="forward-icon" width="16" height="16" aria-hidden="true"><path d="M4 8h8"></path></svg>
+        <button id="open-dialog" data-focus="dialog">Open</button>
+      </main>
+      <dialog id="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <h2 id="dialog-title">Confirm</h2>
+        <button id="dialog-ok">OK</button>
+      </dialog>
+      <footer role="contentinfo">footer</footer>
+    </div>
+  </body>
+</html>

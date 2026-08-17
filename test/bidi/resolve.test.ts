@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyzeBidi, reorderBidi, resolveBidiLevels } from "../../src/bidi/resolve.js";
+import { analyzeBidi, reorderBidi, resolveBidiLevels } from "../../packages/core/src/bidi/resolve.js";
 
 describe("bidi resolution pipeline", () => {
   it("returns final levels for mixed-direction text", () => {

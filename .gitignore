@@ -5,3 +5,8 @@ coverage/
 .cache/
 .claude/
 PLAN.md
+playwright-report/
+test-results/
+test/browser/public/
+examples/storybook/node_modules/
+examples/storybook/storybook-static/

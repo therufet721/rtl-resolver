@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { resolveParagraphs } from "../../src/bidi/paragraphs.js";
-import { resolveExplicit } from "../../src/bidi/explicit.js";
-import { buildIsolatingRunSequences } from "../../src/bidi/isolating-runs.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { resolveParagraphs } from "../../packages/core/src/bidi/paragraphs.js";
+import { resolveExplicit } from "../../packages/core/src/bidi/explicit.js";
+import { buildIsolatingRunSequences } from "../../packages/core/src/bidi/isolating-runs.js";
 
 describe("X10 active level runs", () => {
   it("emits active positions only and records sos/eos", () => {

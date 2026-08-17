@@ -1,0 +1,45 @@
+{
+  "name": "@rtl-resolver/motion",
+  "version": "0.2.0",
+  "description": "Logical start/end motion helpers for RTL-aware interfaces.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Rufat Arzumanov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therufet721/rtl-resolver.git",
+    "directory": "packages/motion"
+  },
+  "homepage": "https://github.com/therufet721/rtl-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/therufet721/rtl-resolver/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyzeBidi, resolveBidiLevels } from "../../src/bidi/resolve.js";
+import { analyzeBidi, resolveBidiLevels } from "../../packages/core/src/bidi/resolve.js";
 
 const RLE = "‫";
 const RLI = "⁧";

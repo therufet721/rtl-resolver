@@ -1,12 +1,28 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "declaration": true,
-    "noEmit": true,
-    "skipLibCheck": true
+    "baseUrl": ".",
+    "paths": {
+      "@rtl-resolver/core": ["packages/core/src/index.ts"],
+      "@rtl-resolver/core/plugin": ["packages/core/src/plugin.ts"],
+      "@rtl-resolver/core/bidi": ["packages/core/src/bidi/index.ts"],
+      "@rtl-resolver/adapters": ["packages/adapters/src/index.ts"],
+      "@rtl-resolver/browser": ["packages/browser/src/index.ts"],
+      "@rtl-resolver/css": ["packages/css/src/index.ts"],
+      "@rtl-resolver/eslint": ["packages/eslint/src/index.ts"],
+      "@rtl-resolver/fonts": ["packages/fonts/src/index.ts"],
+      "@rtl-resolver/icons": ["packages/icons/src/index.ts"],
+      "@rtl-resolver/motion": ["packages/motion/src/index.ts"],
+      "@rtl-resolver/next": ["packages/next/src/index.ts"],
+      "@rtl-resolver/react": ["packages/react/src/index.tsx"],
+      "@rtl-resolver/mui": ["packages/mui/src/index.tsx"],
+      "@rtl-resolver/radix": ["packages/radix/src/index.tsx"],
+      "@rtl-resolver/headless-ui": ["packages/headless-ui/src/index.tsx"],
+      "@rtl-resolver/stylelint": ["packages/stylelint/src/index.ts"],
+      "@rtl-resolver/testing": ["packages/testing/src/index.ts"]
+    },
+    "noEmit": true
   },
-  "include": ["src", "test"]
+  "include": ["src", "test", "scripts/**/*.d.ts", "scripts/**/*.d.mts"],
+  "exclude": ["test/browser", "test/at", "test/fixtures"]
 }

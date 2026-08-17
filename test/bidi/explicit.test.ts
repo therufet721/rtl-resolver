@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { decodeCodePoints } from "../../src/bidi/codepoints.js";
-import { resolveParagraphs } from "../../src/bidi/paragraphs.js";
-import { resolveExplicit } from "../../src/bidi/explicit.js";
+import { decodeCodePoints } from "../../packages/core/src/bidi/codepoints.js";
+import { resolveParagraphs } from "../../packages/core/src/bidi/paragraphs.js";
+import { resolveExplicit } from "../../packages/core/src/bidi/explicit.js";
 
 function explicit(text: string, direction: "ltr" | "rtl" | "auto" = "auto") {
   return resolveExplicit(resolveParagraphs(decodeCodePoints(text), direction)[0]);
