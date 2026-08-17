@@ -118,6 +118,17 @@ describe("workspace publish order", () => {
     expect(stylelint.peerDependenciesMeta.stylelint.optional).toBe(true);
   });
 
+  it("workspace packages inherit root path mappings except core", () => {
+    for (const pkg of publishOrder().filter((item) => !item.root)) {
+      const tsconfig = JSON.parse(readFileSync(`packages/${pkg.name}/tsconfig.json`, "utf8")) as { extends?: string };
+      if (pkg.manifest.name === "@rtl-resolver/core") {
+        expect(tsconfig.extends).toBe("../../tsconfig.base.json");
+        continue;
+      }
+      expect(tsconfig.extends, pkg.manifest.name).toBe("../../tsconfig.json");
+    }
+  });
+
   it("emits a use client banner from React overlay package builds", () => {
     for (const name of ["react", "mui", "radix", "headless-ui"]) {
       expect(readFileSync(`packages/${name}/tsup.config.ts`, "utf8")).toContain('"use client"');

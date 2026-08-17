@@ -25,9 +25,8 @@ every `@rtl-resolver/*` package together with an updated root package.
 - `postcss` and `stylelint` peers are optional because those packages duck-type
   the plugin API and never import the hosts.
 - `rtl-resolver/plugin` re-exports `@rtl-resolver/core/plugin`.
-- `@rtl-resolver/core/bidi` is on the package exports map, matching the built
-  engine entry. `npm run check:exports` resolves every published subpath
-  through Node after build.
+- `@rtl-resolver/next` typechecks through the root path map so a clean CI
+  checkout does not need `dist` before `typecheck:workspaces`.
 - Root `src/` keeps only compatibility re-exports; the duplicate bidi engine
   copy under `src/bidi/` is gone. Unicode generators write into
   `packages/core`.
