@@ -1,9 +1,17 @@
 # rtl-resolver
 
+[![npm](https://img.shields.io/npm/v/@rtl-resolver/core.svg)](https://www.npmjs.com/package/@rtl-resolver/core)
+[![rtl-resolver](https://img.shields.io/npm/v/rtl-resolver.svg?label=rtl-resolver)](https://www.npmjs.com/package/rtl-resolver)
+
 Dependency-free RTL and Unicode bidirectional-text toolkit for JavaScript and
 TypeScript. Locale helpers stay under **6 KiB**. The full UAX #9 engine lives
 on a separate subpath, passes **both official Unicode 17 suites with zero
 failures**, and never reverses your DOM.
+
+Install from npm: [`@rtl-resolver/core`](https://www.npmjs.com/package/@rtl-resolver/core)
+(preferred) or the compatibility package
+[`rtl-resolver`](https://www.npmjs.com/package/rtl-resolver).
+All scoped packages: [npmjs.com/org/rtl-resolver](https://www.npmjs.com/org/rtl-resolver).
 
 ```sh
 npm install @rtl-resolver/core
@@ -160,18 +168,21 @@ Safe migrate rewrites margin/padding/border and `text-align`. Positioning
 
 ## Packages
 
-| Package                                                                                                       | Role                                                  |
-| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [`@rtl-resolver/core`](./packages/core)                                                                       | Locale, script, isolation, UAX #9, plugin types       |
-| [`@rtl-resolver/react`](./packages/react)                                                                     | `DirectionProvider`, `useDirection`, `<Bdi>`, `<Bdo>` |
-| [`@rtl-resolver/next`](./packages/next)                                                                       | App Router promised params/cookies → `lang`/`dir`     |
-| [`@rtl-resolver/browser`](./packages/browser)                                                                 | Logical scroll, paging, keys, swipes                  |
-| [`@rtl-resolver/css`](./packages/css) + [`cli`](./packages/cli)                                               | CSS/CSS-in-JS analysis, `audit` / `migrate` / `init`  |
-| [`@rtl-resolver/eslint`](./packages/eslint) / [`stylelint`](./packages/stylelint)                             | Direction regressions in JS and CSS                   |
-| [`@rtl-resolver/fonts`](./packages/fonts)                                                                     | cmap coverage, GSUB joining fixture, HarfBuzz         |
-| [`@rtl-resolver/icons`](./packages/icons) / [`motion`](./packages/motion)                                     | Mirror policies and logical start/end motion          |
-| [`@rtl-resolver/adapters`](./packages/adapters) / [`testing`](./packages/testing)                             | Forms, tables, LTR/RTL test helpers                   |
-| [`@rtl-resolver/mui`](./packages/mui) / [`radix`](./packages/radix) / [`headless-ui`](./packages/headless-ui) | Direction + dialog/menu/popover/select wrappers       |
+Coordinated **0.2.0** on npm. Names link to the registry; paths are this repo.
+
+| Package | Source | Role |
+| --- | --- | --- |
+| [`rtl-resolver`](https://www.npmjs.com/package/rtl-resolver) | [`src`](./src) | Compatibility re-exports (prefer core for new apps) |
+| [`@rtl-resolver/core`](https://www.npmjs.com/package/@rtl-resolver/core) | [`packages/core`](./packages/core) | Locale, script, isolation, UAX #9, plugin types |
+| [`@rtl-resolver/react`](https://www.npmjs.com/package/@rtl-resolver/react) | [`packages/react`](./packages/react) | `DirectionProvider`, `useDirection`, `<Bdi>`, `<Bdo>` |
+| [`@rtl-resolver/next`](https://www.npmjs.com/package/@rtl-resolver/next) | [`packages/next`](./packages/next) | App Router promised params/cookies → `lang`/`dir` |
+| [`@rtl-resolver/browser`](https://www.npmjs.com/package/@rtl-resolver/browser) | [`packages/browser`](./packages/browser) | Logical scroll, paging, keys, swipes |
+| [`@rtl-resolver/css`](https://www.npmjs.com/package/@rtl-resolver/css) / [`cli`](https://www.npmjs.com/package/@rtl-resolver/cli) | [`css`](./packages/css), [`cli`](./packages/cli) | CSS/CSS-in-JS analysis, `audit` / `migrate` / `init` |
+| [`@rtl-resolver/eslint`](https://www.npmjs.com/package/@rtl-resolver/eslint) / [`stylelint`](https://www.npmjs.com/package/@rtl-resolver/stylelint) | [`eslint`](./packages/eslint), [`stylelint`](./packages/stylelint) | Direction regressions in JS and CSS |
+| [`@rtl-resolver/fonts`](https://www.npmjs.com/package/@rtl-resolver/fonts) | [`packages/fonts`](./packages/fonts) | cmap coverage, GSUB joining fixture, HarfBuzz |
+| [`@rtl-resolver/icons`](https://www.npmjs.com/package/@rtl-resolver/icons) / [`motion`](https://www.npmjs.com/package/@rtl-resolver/motion) | [`icons`](./packages/icons), [`motion`](./packages/motion) | Mirror policies and logical start/end motion |
+| [`@rtl-resolver/adapters`](https://www.npmjs.com/package/@rtl-resolver/adapters) / [`testing`](https://www.npmjs.com/package/@rtl-resolver/testing) | [`adapters`](./packages/adapters), [`testing`](./packages/testing) | Forms, tables, LTR/RTL test helpers |
+| [`@rtl-resolver/mui`](https://www.npmjs.com/package/@rtl-resolver/mui) / [`radix`](https://www.npmjs.com/package/@rtl-resolver/radix) / [`headless-ui`](https://www.npmjs.com/package/@rtl-resolver/headless-ui) | [`mui`](./packages/mui), [`radix`](./packages/radix), [`headless-ui`](./packages/headless-ui) | Direction + dialog/menu/popover/select wrappers |
 
 ```sh
 npm install @rtl-resolver/core @rtl-resolver/react @rtl-resolver/browser
