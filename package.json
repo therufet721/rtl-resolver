@@ -86,7 +86,7 @@
     "version:workspaces": "node scripts/version-workspaces.mjs",
     "release:dry": "node scripts/publish-workspaces.mjs",
     "release:publish": "node scripts/publish-workspaces.mjs --publish",
-    "verify:release": "npm run typecheck && npm run typecheck:workspaces && npm test && npm run build && npm run build:workspaces && npm run check:size && npm run check:exports && npm run lint:rtl && npm audit --omit=dev && npm run test:bidi:conformance",
+    "verify:release": "npm run typecheck && npm run typecheck:workspaces && npm run build && npm run build:workspaces && npm test && npm run check:size && npm run check:exports && npm run lint:rtl && npm audit --omit=dev && npm run test:bidi:conformance",
     "verify:full": "npm run verify:release && npm run test:browsers && npm run storybook:build",
     "prepublishOnly": "node scripts/prepublish-guard.mjs"
   },

@@ -27,6 +27,8 @@ every `@rtl-resolver/*` package together with an updated root package.
 - `rtl-resolver/plugin` re-exports `@rtl-resolver/core/plugin`.
 - `@rtl-resolver/next` typechecks through the root path map so a clean CI
   checkout does not need `dist` before `typecheck:workspaces`.
+- CI and `verify:release` build workspaces before `npm test` so CLI plugin
+  fixtures do not require a pre-existing `packages/cli/dist`.
 - Root `src/` keeps only compatibility re-exports; the duplicate bidi engine
   copy under `src/bidi/` is gone. Unicode generators write into
   `packages/core`.

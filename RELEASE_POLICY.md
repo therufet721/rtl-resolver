@@ -5,9 +5,9 @@
 
 ## What must pass
 
-`npm run verify:release` runs typechecks, unit tests, builds, the lightweight
-entry size budget, Node export-map resolution (`check:exports`), production
-`npm audit --omit=dev`, lint, and both official Unicode suites.
+`npm run verify:release` runs typechecks, workspace builds, unit tests, the
+lightweight entry size budget, Node export-map resolution (`check:exports`),
+production `npm audit --omit=dev`, lint, and both official Unicode suites.
 
 It does **not** run Playwright, Storybook, or NVDA/VoiceOver. Those stay
 separate CI jobs. A green local `verify:release` is not a full ecosystem proof.

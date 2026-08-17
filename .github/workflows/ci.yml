@@ -27,9 +27,9 @@ jobs:
       - run: npm run typecheck
       - run: npm run typecheck:workspaces
       - run: npm run lint
-      - run: npm test
       - run: npm run build
       - run: npm run build:workspaces
+      - run: npm test
       - run: npm run check:exports
       - run: npm run lint:rtl
       - name: Dirty and CSS-in-JS fixtures must fail lint
